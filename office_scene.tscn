@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://ctav3ifwojtpj"]
+[gd_scene load_steps=3 format=3 uid="uid://ctav3ifwojtpj"]
+
+[ext_resource type="Script" path="res://office_scene.gd" id="1_qnyb5"]
+[ext_resource type="Texture2D" uid="uid://c7fp01de041xd" path="res://images/full-office-canvas-1600x720.png" id="2_kn5wx"]
 
 [node name="OfficeScene" type="Node2D"]
+
+[node name="Full-office-canvas-1600x720" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_kn5wx")
+
+[node name="OfficeCamera2D" type="Camera2D" parent="."]
+script = ExtResource("1_qnyb5")
+
+[node name="OfficeCameraControl" type="Control" parent="OfficeCamera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
