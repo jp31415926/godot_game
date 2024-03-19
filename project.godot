@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Godot Game"
+config/version="v0.0.1"
 run/main_scene="res://office_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [rendering]
 
