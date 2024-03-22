@@ -17,12 +17,12 @@ func close_door():
 #	pass
 
 
-func _on_left_door_button_toggled(toggled_on):
+func _on_right_door_button_toggled(toggled_on):
 	if toggled_on:
 		close_door()
 	else:
 		open_door()
 
 
-func _on_left_light_button_toggled(toggled_on):
+func _on_right_light_button_toggled(toggled_on):
 	pass # Replace with function body.

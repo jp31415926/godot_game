@@ -16,7 +16,7 @@ func _input(event):
 			if is_mouse_in_area(event.position):
 				toggle_sprites()
 
-func is_mouse_in_area(mouse_position: Vector2) -> bool:
+func is_mouse_in_area(mouse_position: Vector2) -> bool
 	var area_rect = $CollisionPolygon2D. #.get_collision_rect()
 	return area_rect.has_point(mouse_position)
 
