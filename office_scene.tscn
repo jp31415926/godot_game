@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctav3ifwojtpj"]
+[gd_scene load_steps=23 format=3 uid="uid://ctav3ifwojtpj"]
 
 [ext_resource type="Script" path="res://office_scene.gd" id="1_qnyb5"]
 [ext_resource type="Script" path="res://OfficeCamera2D.gd" id="2_j74wf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://buuo81eer5a3o" path="res://images/right-door-button-on.jpg" id="13_irrux"]
 [ext_resource type="Texture2D" uid="uid://ciuav3gbm6n0i" path="res://images/right-light-button-off.jpg" id="14_ggjit"]
 [ext_resource type="Texture2D" uid="uid://jox3iqdffkwc" path="res://images/right-light-button-on.jpg" id="15_rxp7w"]
+[ext_resource type="FontFile" uid="uid://dhg8lahcvk50i" path="res://PublicPixel.ttf" id="16_lfodi"]
 
 [sub_resource type="Animation" id="Animation_1ihrx"]
 length = 0.001
@@ -63,10 +64,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.001),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(576.667, 0), Vector2(576.667, -720)]
+"values": [Vector2(576.667, -720)]
 }
 
 [sub_resource type="Animation" id="Animation_twj1s"]
@@ -95,6 +96,53 @@ _data = {
 [node name="OfficeScene" type="Node2D"]
 script = ExtResource("1_qnyb5")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PowerLeftLabel" type="Label" parent="CanvasLayer"]
+offset_left = -557.0
+offset_top = 224.0
+offset_right = -392.0
+offset_bottom = 243.0
+theme_override_fonts/font = ExtResource("16_lfodi")
+theme_override_font_sizes/font_size = 15
+text = "Power left:"
+
+[node name="UsageLabel" type="Label" parent="CanvasLayer"]
+offset_left = -557.0
+offset_top = 261.0
+offset_right = -392.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("16_lfodi")
+theme_override_font_sizes/font_size = 15
+text = "Usage:"
+
+[node name="NightLabel" type="Label" parent="CanvasLayer"]
+offset_left = 437.0
+offset_top = -264.0
+offset_right = 545.0
+offset_bottom = -245.0
+theme_override_fonts/font = ExtResource("16_lfodi")
+theme_override_font_sizes/font_size = 15
+text = "Night 1"
+
+[node name="PowerLabel" type="Label" parent="CanvasLayer"]
+offset_left = -391.0
+offset_top = 223.0
+offset_right = -311.0
+offset_bottom = 246.0
+theme_override_fonts/font = ExtResource("16_lfodi")
+theme_override_font_sizes/font_size = 20
+text = "100%"
+
+[node name="TODLabel" type="Label" parent="CanvasLayer"]
+offset_left = 413.0
+offset_top = -299.0
+offset_right = 553.0
+offset_bottom = -271.0
+theme_override_fonts/font = ExtResource("16_lfodi")
+theme_override_font_sizes/font_size = 28
+text = "12 AM"
+
 [node name="Full-office-canvas-1600x720" type="Sprite2D" parent="."]
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_kn5wx")
@@ -111,7 +159,7 @@ libraries = {
 }
 
 [node name="RightDoor" type="Sprite2D" parent="Full-office-canvas-1600x720"]
-position = Vector2(576.667, 0)
+position = Vector2(576.667, -720)
 texture = ExtResource("5_xxbbi")
 script = ExtResource("6_jwc1y")
 
