@@ -8,6 +8,9 @@ func _ready():
 	# https://github.com/godotengine/godot/issues/74587
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
 
+func reset():
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
 	# Check if the ESC key was pressed

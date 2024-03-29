@@ -10,8 +10,6 @@ var right_side_fast
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	offset.x = 0
-	offset.y = 0
 	var sizex = get_viewport().get_visible_rect().size.x
 	# line to cross to pan slowly (left and right 3rd of the screen)
 	left_side_slow = sizex / 3
@@ -19,7 +17,11 @@ func _ready():
 	# move fast if in the left or right 5th of the screen
 	left_side_fast = sizex / 5
 	right_side_fast = left_side_fast * 4
+	reset()
 
+func reset():
+	offset.x = 0
+	offset.y = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

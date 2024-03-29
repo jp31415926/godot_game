@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctav3ifwojtpj"]
+[gd_scene load_steps=25 format=3 uid="uid://ctav3ifwojtpj"]
 
 [ext_resource type="Script" path="res://office_scene.gd" id="1_qnyb5"]
+[ext_resource type="Script" path="res://OfficeCanvasLayer.gd" id="2_cvmvr"]
 [ext_resource type="Script" path="res://OfficeCamera2D.gd" id="2_j74wf"]
 [ext_resource type="Texture2D" uid="uid://c7fp01de041xd" path="res://images/full-office-canvas-1600x720.png" id="2_kn5wx"]
 [ext_resource type="Texture2D" uid="uid://dhxcxbganwsnt" path="res://images/left-door.jpg" id="3_fwji1"]
@@ -22,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Full-office-canvas-1600x720/LeftDoor:position")
+tracks/0/path = NodePath("FullOfficeSprite/LeftDoor:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +40,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Full-office-canvas-1600x720/LeftDoor:position")
+tracks/0/path = NodePath("FullOfficeSprite/LeftDoor:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,83 +94,88 @@ _data = {
 "open_door": SubResource("Animation_twj1s")
 }
 
+[sub_resource type="Environment" id="Environment_02eci"]
+
 [node name="OfficeScene" type="Node2D"]
-position = Vector2(576, 330)
+position = Vector2(576, 324)
 script = ExtResource("1_qnyb5")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="OfficeCanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_cvmvr")
 
-[node name="PowerLeftLabel" type="Label" parent="CanvasLayer"]
+[node name="PowerLeftLabel" type="Label" parent="OfficeCanvasLayer"]
 offset_left = 19.0
-offset_top = 554.0
+offset_top = 548.0
 offset_right = 184.0
-offset_bottom = 573.0
+offset_bottom = 567.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 15
 text = "Power left:"
 metadata/_edit_use_anchors_ = true
 
-[node name="UsageLabel" type="Label" parent="CanvasLayer"]
+[node name="UsageLabel" type="Label" parent="OfficeCanvasLayer"]
 offset_left = 19.0
-offset_top = 591.0
+offset_top = 585.0
 offset_right = 184.0
-offset_bottom = 610.0
+offset_bottom = 604.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 15
 text = "Usage:"
 metadata/_edit_use_anchors_ = true
 
-[node name="NightLabel" type="Label" parent="CanvasLayer"]
+[node name="NightLabel" type="Label" parent="OfficeCanvasLayer"]
 offset_left = 1013.0
-offset_top = 66.0
+offset_top = 60.0
 offset_right = 1121.0
-offset_bottom = 85.0
+offset_bottom = 79.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 15
 text = "Night 1"
 metadata/_edit_use_anchors_ = true
 
-[node name="PowerLabel" type="Label" parent="CanvasLayer"]
+[node name="PowerLabel" type="Label" parent="OfficeCanvasLayer"]
 offset_left = 185.0
-offset_top = 553.0
+offset_top = 547.0
 offset_right = 265.0
-offset_bottom = 576.0
+offset_bottom = 570.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 20
 text = "100%"
 metadata/_edit_use_anchors_ = true
 
-[node name="TODLabel" type="Label" parent="CanvasLayer"]
+[node name="TODLabel" type="Label" parent="OfficeCanvasLayer"]
 offset_left = 989.0
-offset_top = 31.0
+offset_top = 25.0
 offset_right = 1129.0
-offset_bottom = 59.0
+offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 28
 text = "12 AM"
 metadata/_edit_use_anchors_ = true
 
-[node name="Full-office-canvas-1600x720" type="Sprite2D" parent="."]
+[node name="FullOfficeSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_kn5wx")
 
-[node name="LeftDoor" type="Sprite2D" parent="Full-office-canvas-1600x720"]
+[node name="LeftDoor" type="Sprite2D" parent="FullOfficeSprite"]
+unique_name_in_owner = true
 position = Vector2(-603.333, -720)
 texture = ExtResource("3_fwji1")
 script = ExtResource("4_huqt6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Full-office-canvas-1600x720/LeftDoor"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FullOfficeSprite/LeftDoor"]
 root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_rtrty")
 }
 
-[node name="RightDoor" type="Sprite2D" parent="Full-office-canvas-1600x720"]
+[node name="RightDoor" type="Sprite2D" parent="FullOfficeSprite"]
+unique_name_in_owner = true
 position = Vector2(576.667, -720)
 texture = ExtResource("5_xxbbi")
 script = ExtResource("6_jwc1y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Full-office-canvas-1600x720/RightDoor"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FullOfficeSprite/RightDoor"]
 libraries = {
 "": SubResource("AnimationLibrary_qlwcy")
 }
@@ -239,7 +245,10 @@ texture_normal = ExtResource("14_ggjit")
 texture_pressed = ExtResource("15_rxp7w")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="toggled" from="Control/LeftDoorButton" to="Full-office-canvas-1600x720/LeftDoor" method="_on_left_door_button_toggled"]
-[connection signal="toggled" from="Control/LeftLightButton" to="Full-office-canvas-1600x720/LeftDoor" method="_on_left_light_button_toggled"]
-[connection signal="toggled" from="Control/RightDoorButton" to="Full-office-canvas-1600x720/RightDoor" method="_on_right_door_button_toggled"]
-[connection signal="toggled" from="Control/RightLightButton" to="Full-office-canvas-1600x720/RightDoor" method="_on_right_light_button_toggled"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_02eci")
+
+[connection signal="toggled" from="Control/LeftDoorButton" to="FullOfficeSprite/LeftDoor" method="_on_left_door_button_toggled"]
+[connection signal="toggled" from="Control/LeftLightButton" to="FullOfficeSprite/LeftDoor" method="_on_left_light_button_toggled"]
+[connection signal="toggled" from="Control/RightDoorButton" to="FullOfficeSprite/RightDoor" method="_on_right_door_button_toggled"]
+[connection signal="toggled" from="Control/RightLightButton" to="FullOfficeSprite/RightDoor" method="_on_right_light_button_toggled"]
