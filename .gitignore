@@ -3,3 +3,4 @@
 bin/
 addons/
 *.bak
+extras/static_image*
