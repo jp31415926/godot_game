@@ -34,11 +34,13 @@ func _on_left_door_button_toggled(toggled_on):
 
 func light_on():
 	LightOn = true
-	pass
+	# if right light is already on, turn it off
+	if get_node("%RightDoor").LightOn:
+		get_node("%RightDoor").light_off()
 
 func light_off():
 	LightOn = false
-	pass
+	get_node("%LeftLightButton").button_pressed = false
 
 func _on_left_light_button_toggled(toggled_on):
 	if toggled_on:

@@ -131,6 +131,7 @@ offset_bottom = 79.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 15
 text = "Night 1"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PowerLabel" type="Label" parent="OfficeCanvasLayer"]
@@ -140,17 +141,17 @@ offset_right = 265.0
 offset_bottom = 570.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 20
-text = "100%"
 metadata/_edit_use_anchors_ = true
 
 [node name="TODLabel" type="Label" parent="OfficeCanvasLayer"]
-offset_left = 989.0
+offset_left = 994.0
 offset_top = 25.0
-offset_right = 1129.0
+offset_right = 1134.0
 offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("16_lfodi")
 theme_override_font_sizes/font_size = 28
 text = "12 AM"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="FullOfficeSprite" type="Sprite2D" parent="."]
@@ -210,6 +211,7 @@ texture_pressed = ExtResource("8_v55br")
 metadata/_edit_use_anchors_ = true
 
 [node name="LeftLightButton" type="TextureButton" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -689.0
 offset_top = 47.0
@@ -234,6 +236,7 @@ texture_pressed = ExtResource("13_irrux")
 metadata/_edit_use_anchors_ = true
 
 [node name="RightLightButton" type="TextureButton" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 648.0
 offset_top = 58.0
