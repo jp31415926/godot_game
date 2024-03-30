@@ -25,8 +25,8 @@ def save_image(img, filename):
     img.save(filename)
 
 if __name__ == "__main__":
-    width = 1920
-    height = 1080
+    width = 1600
+    height = 720
     max_line_len = 20
     white_percentage = 0.015
 

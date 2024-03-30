@@ -1,8 +1,8 @@
 extends Camera2D
 
-var pan_speed_slow = 300
-var pan_speed_fast = 800
-var max_x_pan = 145
+const pan_speed_slow = 300
+const pan_speed_fast = 800
+const max_x_pan = 145
 var left_side_slow
 var left_side_fast
 var right_side_slow

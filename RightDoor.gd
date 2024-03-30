@@ -1,12 +1,14 @@
 extends Sprite2D
 
 var animation_player : AnimationPlayer
+var audio_player : AudioStreamPlayer
 @export var DoorOpen : bool
 @export var LightOn : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player = $AnimationPlayer
+	audio_player = $AudioStreamPlayer
 	reset()
 
 func reset():
@@ -21,10 +23,12 @@ func reset():
 func open_door():
 	DoorOpen = true
 	animation_player.play("open_door")
+	audio_player.play()
 
 func close_door():
 	DoorOpen = false
 	animation_player.play_backwards("open_door")
+	audio_player.play()
 
 func _on_right_door_button_toggled(toggled_on):
 	if toggled_on:

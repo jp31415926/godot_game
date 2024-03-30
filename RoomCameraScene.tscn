@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://cstcgwb6bb5cq"]
+
+[ext_resource type="Texture2D" uid="uid://cnpoo8hl74mn" path="res://images/cam1.png" id="1_6dw7h"]
+[ext_resource type="Script" path="res://RoomCamera.gd" id="1_u4nl4"]
+[ext_resource type="Texture2D" uid="uid://dy5vlpqxrnape" path="res://images/static_image1.png" id="3_f3uoh"]
+[ext_resource type="Texture2D" uid="uid://bw1xl5risqdbn" path="res://images/static_image2.png" id="4_j1qho"]
+[ext_resource type="Texture2D" uid="uid://cnvt6digw0qmm" path="res://images/static_image3.png" id="5_k7uj0"]
+[ext_resource type="Script" path="res://RoomCamera2D.gd" id="6_ln5pr"]
+[ext_resource type="Texture2D" uid="uid://c574ob5yo3c2a" path="res://images/map_base.png" id="6_vvv21"]
+[ext_resource type="FontFile" uid="uid://dhg8lahcvk50i" path="res://PublicPixel.ttf" id="7_4etdg"]
+
+[node name="RoomCameraScene" type="Node2D"]
+script = ExtResource("1_u4nl4")
+
+[node name="CamSprite" type="Sprite2D" parent="."]
+position = Vector2(720, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_6dw7h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaticImage1" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(720, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_f3uoh")
+
+[node name="StaticImage2" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(720, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_j1qho")
+
+[node name="StaticImage3" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(720, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_k7uj0")
+
+[node name="MapBase" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(919, 482)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_vvv21")
+
+[node name="Cam1Button" type="Button" parent="CanvasLayer"]
+offset_left = 695.0
+offset_top = 346.0
+offset_right = 758.0
+offset_bottom = 394.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4etdg")
+toggle_mode = true
+action_mode = 0
+text = "CAM
+1"
+alignment = 0
+
+[node name="Cam2Button" type="Button" parent="CanvasLayer"]
+offset_left = 689.0
+offset_top = 422.0
+offset_right = 752.0
+offset_bottom = 470.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4etdg")
+toggle_mode = true
+action_mode = 0
+text = "CAM
+2"
+alignment = 0
+
+[node name="Cam3Button" type="Button" parent="CanvasLayer"]
+offset_left = 862.0
+offset_top = 335.0
+offset_right = 925.0
+offset_bottom = 383.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4etdg")
+toggle_mode = true
+action_mode = 0
+text = "CAM
+3"
+alignment = 0
+
+[node name="Cam4Button" type="Button" parent="CanvasLayer"]
+offset_left = 783.0
+offset_top = 486.0
+offset_right = 846.0
+offset_bottom = 534.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4etdg")
+toggle_mode = true
+action_mode = 0
+text = "CAM
+4"
+alignment = 0
+
+[node name="Cam5Button" type="Button" parent="CanvasLayer"]
+offset_left = 1057.0
+offset_top = 421.0
+offset_right = 1120.0
+offset_bottom = 469.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4etdg")
+toggle_mode = true
+action_mode = 0
+text = "CAM
+5"
+alignment = 0
+
+[node name="Cam6Button" type="Button" parent="CanvasLayer"]
+offset_left = 937.0
+offset_top = 582.0
+offset_right = 1000.0
+offset_bottom = 630.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_4etdg")
+toggle_mode = true
+action_mode = 0
+text = "CAM
+6"
+alignment = 0
+
+[node name="RoomCamera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+script = ExtResource("6_ln5pr")

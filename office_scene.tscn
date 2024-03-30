@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bx24cshtcc4jd" path="res://images/right-door.jpg" id="5_xxbbi"]
 [ext_resource type="Script" path="res://RightDoor.gd" id="6_jwc1y"]
 [ext_resource type="Texture2D" uid="uid://bhayiq0p0nbh7" path="res://images/left-door-button-off.jpg" id="7_dbhn4"]
+[ext_resource type="AudioStream" uid="uid://ckhoat3nr0iw5" path="res://audio/Metal Grate Stop - QuickSounds.com.mp3" id="7_wygki"]
 [ext_resource type="Texture2D" uid="uid://blivyacr0hb4m" path="res://images/left-door-button-on.jpg" id="8_v55br"]
 [ext_resource type="Texture2D" uid="uid://cpajxgbsb7wtd" path="res://images/left-light-button-off.jpg" id="9_arava"]
 [ext_resource type="Texture2D" uid="uid://bru14pcieb427" path="res://images/left-light-button-on.jpg" id="10_jtrei"]
@@ -94,8 +95,6 @@ _data = {
 "open_door": SubResource("Animation_twj1s")
 }
 
-[sub_resource type="Environment" id="Environment_02eci"]
-
 [node name="OfficeScene" type="Node2D"]
 position = Vector2(576, 324)
 script = ExtResource("1_qnyb5")
@@ -170,6 +169,9 @@ libraries = {
 "": SubResource("AnimationLibrary_rtrty")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FullOfficeSprite/LeftDoor"]
+stream = ExtResource("7_wygki")
+
 [node name="RightDoor" type="Sprite2D" parent="FullOfficeSprite"]
 unique_name_in_owner = true
 position = Vector2(576.667, -720)
@@ -180,6 +182,9 @@ script = ExtResource("6_jwc1y")
 libraries = {
 "": SubResource("AnimationLibrary_qlwcy")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FullOfficeSprite/RightDoor"]
+stream = ExtResource("7_wygki")
 
 [node name="OfficeCamera2D" type="Camera2D" parent="."]
 script = ExtResource("2_j74wf")
@@ -247,9 +252,6 @@ toggle_mode = true
 texture_normal = ExtResource("14_ggjit")
 texture_pressed = ExtResource("15_rxp7w")
 metadata/_edit_use_anchors_ = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_02eci")
 
 [connection signal="toggled" from="Control/LeftDoorButton" to="FullOfficeSprite/LeftDoor" method="_on_left_door_button_toggled"]
 [connection signal="toggled" from="Control/LeftLightButton" to="FullOfficeSprite/LeftDoor" method="_on_left_light_button_toggled"]

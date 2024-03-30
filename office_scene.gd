@@ -11,9 +11,11 @@ func _ready():
 func reset():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
 	# Check if the ESC key was pressed
 	if event.is_action_pressed("quit_game"):
 		# Quit the game
 		get_tree().quit()
+
+	if event.is_action_pressed("toggle_camera"):
+		get_tree().change_scene_to_file("res://RoomCameraScene.tscn")
