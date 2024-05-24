@@ -5,13 +5,25 @@ var staticVisibleImage
 #var ShowStaticOverViewport
 var updateStaticTimer
 
+func set_active(active: bool):
+	self.set_process(active)
+	#self.set_physics_process(active)
+	#self.set_process_input(active)
+	self.visible = active
+	$RoomCamCanvasLayer.set_process(active)
+	#$RoomCamCanvasLayer.set_physics_process(active)
+	#$RoomCamCanvasLayer.set_process_input(active)
+	$RoomCamCanvasLayer.visible = active
+	$RoomCamera2D.set_process(active)
+	#$RoomCamera2D.set_physics_process(active)
+	#$RoomCamera2D.set_process_input(active)
+	$RoomCamera2D.visible = active
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Connect the input event
-	set_process_input(true)
-	staticSprites = [$CanvasLayer/StaticImage1, 
-		$CanvasLayer/StaticImage2, 
-		$CanvasLayer/StaticImage3]
+	staticSprites = [$RoomCamCanvasLayer/StaticImage1, 
+		$RoomCamCanvasLayer/StaticImage2, 
+		$RoomCamCanvasLayer/StaticImage3]
 	reset()
 
 func reset():
@@ -25,7 +37,7 @@ func reset():
 	staticVisibleImage = 0
 	updateStaticTimer = 0
 
-func _physics_process(delta):
+func _process(delta):
 	updateStaticTimer -= delta
 	if updateStaticTimer <= 0:
 		updateStaticTimer += 1.0/20.0
@@ -37,13 +49,3 @@ func _physics_process(delta):
 			staticVisibleImage = 0
 		staticSprites[staticVisibleImage].visible = true
 
-func _input(event):
-	# Check if the ESC key was pressed
-	if event.is_action_pressed("quit_game"):
-		# Quit the game
-		get_tree().quit()
-
-	if event.is_action_pressed("toggle_camera"):
-		#reset()
-		#ShowStaticOverViewport = false
-		get_tree().change_scene_to_file("res://office_scene.tscn")
